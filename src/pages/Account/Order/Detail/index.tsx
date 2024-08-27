@@ -6,6 +6,9 @@ const Detay = () => {
     const { orders } = useDatas()
     const { id } = useParams()
     const obj = orders.find((s:OrderType)=>s.number == id)
+    if (!obj) {
+      return <p>Belirtilen sipariş bulunamadı.</p>;
+    }
   return (
     <>
         <div className="col-span-3 pb-10">
