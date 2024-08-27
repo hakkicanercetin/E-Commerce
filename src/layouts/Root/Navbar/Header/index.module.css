@@ -1,0 +1,8 @@
+.input{
+    @apply py-[9px] px-3 min-[1368px]:w-[316px] w-[160px] placeholder:text-[#a1a1a1] border-2 border-solid border-[#919191] rounded-l;
+    
+}
+.button{
+    @apply py-[9px] px-[24.9px] text-white border-2 border-solid border-[#919191] rounded-r;
+    background-color: #919191;
+}

@@ -1,0 +1,15 @@
+.ggz,.ggs{
+    position: absolute;
+    left: 0;
+    top: 130px;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0px 0px 10px 0px #00000033 inset;
+}
+.ggz{
+    display: none;
+}
+.ggs{
+    display: block;
+    @apply min-[768px]:hidden
+}
