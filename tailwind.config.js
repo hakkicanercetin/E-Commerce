@@ -8,6 +8,7 @@ export default {
     extend: {
       backgroundImage: () => ({
         'second-banner': "url('/src/assets/secondBannerBg.png')",
+        'custom-gradient': 'linear-gradient(90deg, #387EC7, #1F23AA)'
       }),
       
     },

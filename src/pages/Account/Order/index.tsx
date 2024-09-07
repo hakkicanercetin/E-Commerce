@@ -2,7 +2,7 @@ import { useDatas } from "../../../Context";
 import { Link } from "react-router-dom";
 import { OrderType } from "../../../Types";
 
-const Sipariş = () => {
+const Order = () => {
   const { orders } = useDatas();
 
   return (
@@ -28,7 +28,7 @@ const Sipariş = () => {
           </div>
           <div className="col-span-5 flex items-center justify-center">
             <button className="text-sm px-4 py-2 border-[1px] border-solid border-[#000] rounded">
-              <Link to={`/hesabim/${s.number}`}>Detayları Görüntüle</Link>
+              <Link to={`/account/${s.number}`}>Detayları Görüntüle</Link>
             </button>
           </div>
         </div>
@@ -37,4 +37,4 @@ const Sipariş = () => {
   );
 };
 
-export default Sipariş;
+export default Order;

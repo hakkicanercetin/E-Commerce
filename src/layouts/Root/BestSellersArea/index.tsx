@@ -5,7 +5,7 @@ import product4 from "../../../assets/product4.png"
 import product5 from "../../../assets/product5.png"
 import product6 from "../../../assets/product6.png"
 import Card from "./Card"
-const BestSellers = () => {
+const BestSellers = ({title}:{title:string}) => {
     const bestSellerProducts = [
         {
             image:product,
@@ -56,7 +56,7 @@ const BestSellers = () => {
     <>
     <div className="min-[1700px]:px-[360px] px-[225px] max-[1368px]:px-[175px] max-[1200px]:px-[150px] max-[992px]:px-[32px]">
         <div>
-            <p className="text-[22px] leading-8 text-center mt-[10px]">ÇOK SATANLAR</p>
+            <p className="text-[22px] leading-8 text-center mt-[10px]">{title}</p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 min-[1645px]:grid-cols-6 py-4 gap-5">
             {bestSellerProducts.map((p,index)=>(

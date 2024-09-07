@@ -5,11 +5,13 @@ import { IoLocationOutline } from "react-icons/io5";
 import { useState } from "react";
 import Sipariş from "./Order";
 import Adres from "./Adress";
-import { Outlet, useParams } from "react-router";
+import { useParams } from "react-router";
+import OrderDetail from "./Order/Detail";
 
 const Account = () => {
   const [activeTab, setActiveTab] = useState("bilgi");
   const { id } = useParams();
+  console.log(activeTab)
   return (
     <>
       <div className="min-[1700px]:px-[360px] px-[225px] max-[1368px]:px-[175px] max-[1200px]:px-[150px] max-[992px]:px-[32px] max-[767px]:px-4">
@@ -26,7 +28,7 @@ const Account = () => {
                 <AiOutlineControl className=" rotate-90" size={24} />
                 <p
                   className={`text-sm leading-6 pl-1 md:pl-4 ${
-                    !id && activeTab == "bilgi" ? "font-bold" : "font-normal"
+                    activeTab == "bilgi" ? "font-bold" : "font-normal"
                   }`}
                 >
                   Hesap Bilgilerim
@@ -39,7 +41,7 @@ const Account = () => {
                 <LuPackage2 size={24} />
                 <p
                   className={`text-sm leading-6 pl-1 md:pl-4 ${
-                    !id && activeTab == "sipariş" ? "font-bold" : "font-normal"
+                    activeTab == "sipariş" ? "font-bold" : "font-normal"
                   }`}
                 >
                   Siparişlerim
@@ -52,7 +54,7 @@ const Account = () => {
                 <IoLocationOutline size={24} />
                 <p
                   className={`text-sm leading-6 pl-1 md:pl-4 ${
-                    !id && activeTab == "adres" ? "font-bold" : "font-normal"
+                    activeTab == "adres" ? "font-bold" : "font-normal"
                   }`}
                 >
                   Adreslerim
@@ -61,7 +63,7 @@ const Account = () => {
             </div>
           </div>
           {id ? (
-            <Outlet></Outlet>
+            <OrderDetail></OrderDetail>
           ) : (
             <>
               {activeTab == "bilgi" && <Info></Info>}

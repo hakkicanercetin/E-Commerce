@@ -11,7 +11,7 @@ const HomePage = () => {
       <Delivery></Delivery>
       <Banner></Banner>
       <Categories></Categories>
-      <BestSellers></BestSellers>
+      <BestSellers title="ÇOK SATANLAR"></BestSellers>
       <SecondBanner></SecondBanner>
       <SliderComments></SliderComments>
     </>

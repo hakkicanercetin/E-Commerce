@@ -9,6 +9,7 @@ import Accordion from "../../layouts/components/Accordion";
 import BestSellers from "../../layouts/Root/BestSellersArea";
 import AromaButton from "../../layouts/components/AromaButton";
 import SizeButton from "../../layouts/components/SizeButton";
+import CommentScore from "./CommentScore";
 const ProductDetail = () => {
   const Aromalar = [
     {
@@ -70,7 +71,7 @@ const ProductDetail = () => {
   return (
     <>
       <div className="min-[1500px]:px-[360px] px-[225px] max-[1368px]:px-[175px] max-[1200px]:px-[150px] max-[992px]:px-[32px] max-[767px]:px-4">
-        <div className="ml-[50px] mt-5">
+        <div className="md:ml-[50px] mt-5">
           <div className="grid md:grid-cols-2">
             <div>
               <img src={product} alt="product" />
@@ -83,7 +84,7 @@ const ProductDetail = () => {
                 EN ÇOK TERCİH EDİLEN PROTEİN TAKVİYESİ
               </p>
               <div className="flex">
-                <Stars></Stars>
+                <Stars count={5}></Stars>
                 <p className="text-[15px] leading-5 font-semibold self-center ml-1">
                   10869 Yorum
                 </p>
@@ -110,9 +111,9 @@ const ProductDetail = () => {
               <div>
                 <p className=" text-base leading-4 font-bold py-4">BOYUT:</p>
                 <div className="">
-                    <SizeButton text={"400G"} subtext={"16 servis"} id={1}></SizeButton>
-                    <SizeButton text={"1.6KG"} subtext={"64 servis"} id={1}></SizeButton>
-                    <SizeButton text={"1.6KG X 2 ADET"} subtext={"128 servis"} id={1}></SizeButton>
+                    <SizeButton text={"400G"} subtext={"16 servis"}></SizeButton>
+                    <SizeButton text={"1.6KG"} subtext={"64 servis"}></SizeButton>
+                    <SizeButton text={"1.6KG X 2 ADET"} subtext={"128 servis"} discount={2}></SizeButton>
                 </div>
               </div>
             </div>
@@ -191,7 +192,9 @@ const ProductDetail = () => {
         </div>
       </div>
       <div className="inline-block py-[130px] w-full">
-            <BestSellers></BestSellers>
+            <BestSellers title="SON GÖRÜNTÜLENEN ÜRÜNLER"></BestSellers>
+            <CommentScore score={4.8} totalComment={10869}></CommentScore>
+            <BestSellers title="ÇOK SATANLAR"></BestSellers>
       </div>
     </>
   );
