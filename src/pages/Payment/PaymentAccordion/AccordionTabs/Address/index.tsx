@@ -1,7 +1,5 @@
 import { useState } from "react";
 import AddressRadio from "./AddressRadio";
-import AddressHeaderInput from "../../../../Account/Adress/HeaderInput";
-import AddressInput from "../../../../Account/Adress/AdressInput";
 import { ClipLoader } from "react-spinners";
 type AddressType = {
   header: string;
@@ -41,8 +39,8 @@ const AccordionAddress = ({
             </div>
           ) : (
             <>
-              <AddressHeaderInput />
-              <AddressInput />
+              {/* <AddressHeaderInput />
+              <AddressInput /> */}
             </>
           )}
         </div>
