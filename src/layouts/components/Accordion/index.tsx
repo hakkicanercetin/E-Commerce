@@ -1,37 +1,40 @@
-import { useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
-interface AccordionTypes {
-  title:string,
-  content:string
-}
-const Accordion = ({title,content}:AccordionTypes) => {
-const [isOpen, setIsOpen] = useState(false);
-  const [rotate, setRotate] = useState(false); 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-    setRotate(!rotate);
-  };
-  return (
-    <>
-    <li className="list-none mb-2">
-      <h3 className={`flex`}>
-        <button onClick={handleToggle} className="w-full cursor-pointer flex justify-between items-center text-left py-2">
-          {title}
-          <div className={rotate ? '-rotate-180' : ''}>
-          <IoIosArrowDown />
-          </div>
-        </button>
-      </h3>
-      </li>
-      {isOpen && (
-        <div className="py-5">
-          <p>{content}</p>
-        </div>
-      )
-      }
-      <hr />
-      </>
-  )
-}
+import { NutritionalContent } from "../../../Types/APIProduct";
+import AccordionContent from "./Content";
+export type PropertiesType = {
+  title: string;
+  content: string;
+};
+export type NutritionalContentType = {
+  title: string;
+  content: NutritionalContent;
+};
+export type UsageType = {
+  title: string;
+  content: string;
+};
 
-export default Accordion
+const Accordion = ({
+  property,
+  ingred,
+  usg,
+}: {
+  property: PropertiesType;
+  ingred: NutritionalContentType;
+  usg: UsageType;
+}) => {
+  return (
+    <div>
+      {
+        <AccordionContent property={property} />
+      }
+      {
+        <AccordionContent ingred={ingred} />
+      }
+      {
+        <AccordionContent usg={usg} />
+      }
+    </div>
+  );
+};
+
+export default Accordion;

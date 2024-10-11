@@ -1,15 +1,15 @@
-.ggz,.ggs{
+.closeNav,.openNav{
     position: absolute;
     left: 0;
     top: 130px;
     width: 100%;
-    z-index: 10;
+    z-index: 11;
     box-shadow: 0px 0px 10px 0px #00000033 inset;
 }
-.ggz{
+.closeNav{
     display: none;
 }
-.ggs{
+.openNav{
     display: block;
     @apply min-[768px]:hidden
 }

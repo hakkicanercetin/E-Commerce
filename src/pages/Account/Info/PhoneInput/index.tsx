@@ -7,7 +7,7 @@ interface CountryType{
     phoneCode:string,
     flag:string
 }
-const PhoneInput = () => {
+const PhoneInput = ({phoneNumber,onchange}:{phoneNumber:string,onchange:(e: React.ChangeEvent<HTMLInputElement>) => void}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activeCountry, setActiveCountry] = useState({
     name:"Turkey",
@@ -85,6 +85,8 @@ const PhoneInput = () => {
           type="text"
           id="tel"
           className="border-t-[1px] border-r-[1px] border-b-[1px] border-solid border-[#e5e5e5] bg-[#f7f7f7] p-4 w-full rounded-r-lg"
+          value={phoneNumber}
+          onChange={onchange}
         />
         </div>
       </div>

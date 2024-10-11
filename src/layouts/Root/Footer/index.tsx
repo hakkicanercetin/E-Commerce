@@ -58,7 +58,7 @@ const Footer = () => {
       <div className="min-[1700px]:px-[360px] px-[225px] max-[1368px]:px-[175px] max-[1200px]:px-[150px] max-[992px]:px-[32px] bg-[#222222]">
         <div className="py-10">
           <div className="flex items-end">
-            <Stars></Stars>
+            <Stars count={5}></Stars>
             <p className="text-base text-white ml-2">(140.000+)</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 md:gap-x-5">
@@ -80,24 +80,24 @@ const Footer = () => {
               alt="logo"
               className="w-[132px] h-[30px] mb-7 md:mb-0"
             />
-            <p className="text-lg md:hidden"><button onClick={()=>handleToggle("OJS")}>+</button>OJS NUTRITION</p>
-            <ul className={`text-[#999999] text-xs md:block ${isOpen.OJS ? "block" : "hidden"}`}>
+            <p className="text-lg md:hidden" onClick={()=>handleToggle("OJS")}><span className="pr-2">{isOpen.OJS ? "-" : "+"}</span>OJS NUTRITION</p>
+            <ul className={`text-[#999999] text-xs md:block py-2 ${isOpen.OJS ? "block" : "hidden"}`}>
               {FooterOJSTexts.map((f, index) => (
                 <li key={index}>{f}</li>
               ))}
             </ul>
           </div>
           <div>
-            <p className="text-lg"><button className="md:hidden" onClick={()=>handleToggle("Kategoriler")}>+</button>Kategoriler</p>
-            <ul className={`text-[#999999] text-xs md:block ${isOpen.Kategoriler ? "block" : "hidden"}`}>
+            <p className="text-lg" onClick={()=>handleToggle("Kategoriler")}><span className="md:hidden pr-2">{isOpen.Kategoriler ? "-" : "+"}</span>Kategoriler</p>
+            <ul className={`text-[#999999] text-xs md:block py-2 ${isOpen.Kategoriler ? "block" : "hidden"}`}>
               {FooterKategorilerTexts.map((f, index) => (
                 <li key={index}>{f}</li>
               ))}
             </ul>
           </div>
           <div>
-            <p className="text-lg"><button className="md:hidden" onClick={()=>handleToggle("Popüler")}>+</button>Popüler Ürünler</p>
-            <ul className={`text-[#999999] text-xs md:block ${isOpen.Popüler ? "block" : "hidden"}`}>
+            <p className="text-lg" onClick={()=>handleToggle("Popüler")}><span className="md:hidden pr-2">{isOpen.Popüler ? "-" : "+"}</span>Popüler Ürünler</p>
+            <ul className={`text-[#999999] text-xs md:block py-2 ${isOpen.Popüler ? "block" : "hidden"}`}>
                 {FooterPopülerTexts.map((f,index)=>(
                     <li key={index}>{f}</li>
                 ))}

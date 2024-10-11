@@ -1,7 +1,8 @@
-export interface OrderType {
-    image: string;
-    status: string;
-    name: string;
-    date: string;
-    number: string;
+import { Variant } from "./APIProduct"
+
+export type BasketItemType = {
+    quantity:number,
+    variant:Variant,
+    name:string,
+    price:number
   }

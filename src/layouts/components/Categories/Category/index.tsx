@@ -1,11 +1,16 @@
-interface CategoryProps {
-  image?: string;
+import { Link } from "react-router-dom";
+import { Category as CategoryData } from "../../../../Types/APICategory";
+
+interface ExtendedCategoryData extends CategoryData {
+  image: string;
 }
-const Category = ({image}:CategoryProps) => {
+
+const Category = ({ categoryData }: {categoryData:ExtendedCategoryData}) => {
   return (
-    
     <div className="py-3">
-      <img src={image} alt="category" />
+      <Link to={categoryData.slug}>
+        <img src={categoryData.image} alt="category" />
+      </Link>
     </div>
   );
 };

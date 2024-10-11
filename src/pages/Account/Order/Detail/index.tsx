@@ -1,12 +1,10 @@
 import { useParams } from "react-router";
-import { useDatas } from "../../../../Context";
-import { OrderType } from "../../../../Types";
+import { dummyOrders } from "../DummyOrderData";
 import OrderProduct from "./OrderProduct";
 
 const OrderDetail = () => {
-  const { orders } = useDatas();
   const { id } = useParams();
-  const obj = orders.find((s: OrderType) => s.number == id);
+  const obj = dummyOrders.find((order) => order.number == id);
   if (!obj) {
     return <p>Belirtilen sipariş bulunamadı.</p>;
   }
@@ -25,6 +23,7 @@ const OrderDetail = () => {
         <div className="md:grid md:grid-cols-3">
           <div className="col-span-2">
             <div className="py-5 border-y-[1px] border-y-black">
+              <OrderProduct></OrderProduct>
               <OrderProduct></OrderProduct>
             </div>
             <div className="flex">

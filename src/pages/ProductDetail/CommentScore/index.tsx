@@ -13,7 +13,7 @@ const CommentScore = ({
   return (
     <>
       <div className="min-[1700px]:px-[360px] px-[225px] max-[1368px]:px-[175px] max-[1200px]:px-[150px] max-[992px]:px-[32px]">
-        <div className="md:grid md:grid-cols-2">
+        <div className="md:grid md:grid-cols-2 mt-40">
           <div className="md:col-span-1 md:grid md:grid-cols-2 flex justify-center items-center">
             <div className="col-span-1 text-center">
               <div className="inline-flex">
