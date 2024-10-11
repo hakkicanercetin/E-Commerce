@@ -4,10 +4,10 @@ export type bestSellerAndProductDetailType = {
     bestSellers:bestSellerType,
     productDetails:ProductDetailType,
 }
-type NutritionalContent = {
+export type NutritionalContent = {
     ingredients: {
-      name: string;
-      amounts: string[];
+      aroma: string;
+      value: string[];
     }[];
     nutrition_facts: {
       ingredients: {

@@ -3,7 +3,7 @@ import AccordionAddress from "./AccordionTabs/Address";
 import AccordionCargo from "./AccordionTabs/Cargo";
 import AccordionPayment from "./AccordionTabs/Payment";
 const PaymentAccordion = () => {
-  const [tabs, setTabs] = useState([
+  const tabs = [
   {
     name: "Address",
     TR: "Adres",
@@ -26,7 +26,7 @@ const PaymentAccordion = () => {
     name: "Payment",
     TR: "Ödeme",
   },
-]);
+];
   const [activeTab, setActiveTab] = useState<number[]>([0]);
   const handleTabClick = (index: number) => {
     if (!activeTab.includes(index) && (index < activeTab[0])) {
