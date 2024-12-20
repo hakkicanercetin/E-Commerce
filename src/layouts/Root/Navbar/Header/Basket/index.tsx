@@ -57,12 +57,14 @@ const Basket = ({
               <p className="text-lg font-semibold">Toplam:</p>
               <p className="text-xl font-bold">{Math.floor(totalPrice)} TL</p>
             </div>
+            <Link to={"/payment"}>
             <button
               onClick={() => setIsCartOpen(false)}
               className="bg-black text-white py-2 rounded w-full"
             >
-              <Link to={"/payment"}>DEVAM ET</Link>
+              DEVAM ET
             </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -3,30 +3,7 @@ import AccordionAddress from "./AccordionTabs/Address";
 import AccordionCargo from "./AccordionTabs/Cargo";
 import AccordionPayment from "./AccordionTabs/Payment";
 const PaymentAccordion = () => {
-  const tabs = [
-  {
-    name: "Address",
-    TR: "Adres",
-    content: [
-      {
-        header: "Ev",
-        address: "Ahmet Mah. Mehmetoğlu Sk., No: 1 Daire: 2, Ataşehir, İstanbul, Türkiye",
-      },
-      {
-        header: "Ofis",
-        address: "Ayşe Mah. Fatmaoğlu Cad., No: 4 D: 4, Ataşehir, İstanbul, Türkiye",
-      },
-    ],
-  },
-  {
-    name: "Cargo",
-    TR: "Kargo",
-  },
-  {
-    name: "Payment",
-    TR: "Ödeme",
-  },
-];
+  const tabs = ["Adres","Kargo","Ödeme"];
   const [activeTab, setActiveTab] = useState<number[]>([0]);
   const handleTabClick = (index: number) => {
     if (!activeTab.includes(index) && (index < activeTab[0])) {
@@ -39,10 +16,13 @@ const handleNextTab = () => {
         setActiveTab([nextTab]);
     }
 };
+const handleBack = () => {
+      setActiveTab([activeTab[0]]);
+};
   return (
     <>
       <div className="flex flex-col">
-        {tabs.map((tab, index) => (
+        {tabs.map((tab,index) => (
           <div key={index}>
             <div className="flex items-center justify-between py-4 bg-white cursor-pointer" onClick={()=>handleTabClick(index)}>
               <div className="flex justify-center items-center">
@@ -61,7 +41,7 @@ const handleNextTab = () => {
                     {index + 1}
                   </p>
                 </div>
-                <p className="pl-4">{tab.TR}</p>
+                <p className="pl-4">{tab}</p>
               </div>
             </div>
             {activeTab.includes(index) && (
@@ -69,7 +49,7 @@ const handleNextTab = () => {
                 {index === 0 && (
                   <AccordionAddress
                     handleNextTab={handleNextTab}
-                    tabs={tabs}
+                    handleBack={handleBack}
                   ></AccordionAddress>
                 )}
                 {index === 1 && (

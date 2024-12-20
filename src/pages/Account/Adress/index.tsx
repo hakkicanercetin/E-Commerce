@@ -3,8 +3,10 @@ import PhoneInput from "../Info/PhoneInput";
 import SaveButton from "../Info/SaveButton";
 import AddressHeaderInput from "./HeaderInput";
 import AddressInput from "./AdressInput";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiPlus, BiTrash } from "react-icons/bi";
+import useAddressStore from "../../../stores/AddressStore/useAddress";
+import { FaEdit } from "react-icons/fa";
 
 interface AddressData {
   id: number;
@@ -19,6 +21,12 @@ interface AddressData {
 }
 
 const Address = () => {
+  const {
+    addresses,
+    addAddress,
+    updateAddress,
+    deleteAddress,
+  } = useAddressStore();
   const [firstName, setFirstName] = useState("");  
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -27,13 +35,12 @@ const Address = () => {
   const [apartment, setApartment] = useState("");
   const [city, setCity] = useState("");
   const [district, setDistrict] = useState("");
-  const [addresses, setAddresses] = useState<AddressData[]>([]);
   const [editId, setEditId] = useState<number | null>(null);
   const [editMode, setEditMode] = useState(false); // To toggle between showing the form or saved addresses
 
   const handleSave = () => {
-    const addressData: AddressData = {
-      id: editId !== null ? editId : Date.now(), // Use editId if editing, otherwise generate a new id
+    const addressData = {
+      id: editId !== null ? editId : Date.now(),
       firstName,
       lastName,
       phoneNumber,
@@ -45,21 +52,12 @@ const Address = () => {
     };
 
     if (editId !== null) {
-      // Update existing address
-      const updatedAddresses = addresses.map((addr) =>
-        addr.id === editId ? addressData : addr
-      );
-      setAddresses(updatedAddresses);
+      updateAddress(addressData);
       setEditId(null);
     } else {
-      // Add new address
-      setAddresses((prev) => [...prev, addressData]);
+      addAddress(addressData);
     }
 
-    // Save addresses to localStorage
-    localStorage.setItem("addresses", JSON.stringify([...addresses, addressData]));
-
-    // Clear input fields after save
     setFirstName("");
     setLastName("");
     setPhoneNumber("");
@@ -68,21 +66,11 @@ const Address = () => {
     setApartment("");
     setCity("");
     setDistrict("");
-
-    setEditMode(false); // Exit edit mode after saving
+    setEditMode(false);
   };
 
-  useEffect(() => {
-    const storedAddresses = localStorage.getItem("addresses");
-    if (storedAddresses) {
-      setAddresses(JSON.parse(storedAddresses));
-    }
-  }, []);
-
   const handleDelete = (id: number) => {
-    const updatedAddresses = addresses.filter((address) => address.id !== id);
-    setAddresses(updatedAddresses);
-    localStorage.setItem("addresses", JSON.stringify(updatedAddresses));
+    deleteAddress(id);
   };
 
   const handleEdit = (address: AddressData) => {
@@ -95,11 +83,10 @@ const Address = () => {
     setCity(address.city);
     setDistrict(address.district);
     setEditId(address.id);
-    setEditMode(true); // Enter edit mode
+    setEditMode(true);
   };
 
   const handleNewAddress = () => {
-    // Clear form fields for new address
     setFirstName("");
     setLastName("");
     setPhoneNumber("");
@@ -130,7 +117,6 @@ const Address = () => {
       
       <div className="flex flex-col gap-4">
         {editMode ? (
-          // Show form to create or edit address
           <>
             <div className="grid gap-4 grid-cols-2">
               <AddressHeaderInput 
@@ -162,7 +148,6 @@ const Address = () => {
             <SaveButton onclick={handleSave} />
           </>
         ) : (
-          // Show saved addresses if available
           <>
             {addresses.length > 0 ? (
               <div className="grid grid-cols-3 gap-4">
@@ -177,8 +162,9 @@ const Address = () => {
                         <BiTrash size={20} />
                         <p className="pl-2">Sil</p>
                       </button>
-                      <button className="p-2" onClick={() => handleEdit(address)}>
-                        Adresi Düzenle
+                      <button className="flex items-center" onClick={() => handleEdit(address)}>
+                      <FaEdit size={20}/>
+                        <p className="pl-2">Düzenle</p>
                       </button>
                     </div>
                   </div>

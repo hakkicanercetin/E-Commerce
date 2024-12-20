@@ -18,7 +18,6 @@ const ProductDetail = () => {
   const { addToBasket } = useBasketStore();
   const [counterValue, setCounterValue] = useState(1);
   const { productDetails } = useLoaderData() as bestSellerAndProductDetailType;
-  console.log(productDetails)
   const {
     variants,
     name,
@@ -35,36 +34,6 @@ const ProductDetail = () => {
   const part2 = description.substring(splitIndex);
   const lines = part2.split("\n");
   const bulletPoints = lines.filter((line) => line.trim().startsWith("-"));
-  /* const seenAromas = new Set<string>();
-  const uniqueVariants = variants.filter((variant) => {
-    if (seenAromas.has(variant.aroma)) {
-      return false;
-    } else {
-      seenAromas.add(variant.aroma);
-      return true;
-    }
-  });
-  const [selectedAroma, setSelectedAroma] = useState<string>(
-    uniqueVariants[0].aroma
-  );
-  const [selectedVariantId, setSelectedVariantId] = useState<string>(
-  );
-  useEffect(()=>{
-    setSelectedVariantId(uniqueVariants[0].id)
-  },[])
-  console.log(selectedVariantId)
-  const handleSizeClick = (id: string) => {
-    setSelectedVariantId(id);
-  };
-  const handleAromaClick = (aroma: string) => {
-    setSelectedAroma(aroma);
-
-    const defaultVariant = variants.find((variant) => variant.aroma === aroma);
-    setSelectedVariantId(defaultVariant?.id);
-  };
-  const selectedFinalVariant = variants.filter(
-    (v) => v.id == selectedVariantId
-    ); */
     const handleAddToBasket = () => {
       const price = selectedVariant.price.discount_percentage
         ? selectedVariant.price.discounted_price
