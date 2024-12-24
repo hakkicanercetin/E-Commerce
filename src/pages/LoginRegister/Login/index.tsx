@@ -8,7 +8,7 @@ const Login = () => {
             <label>
               <div className="mb-2 font-medium">*E-Posta</div>
               <input
-                className="w-full border px-4 rounded h-12"
+                className="w-full px-4 rounded h-12 border-[1px] border-solid border-[#e5e5e5] bg-[#f7f7f7]"
                 type="email"
               />
             </label>
@@ -17,7 +17,7 @@ const Login = () => {
             <label>
               <div className="mb-2 text-brown font-medium">*Şifre</div>
               <input
-                className="w-full border px-4 rounded h-12"
+                className="w-full px-4 rounded h-12 border-[1px] border-solid border-[#e5e5e5] bg-[#f7f7f7]"
                 type="password"
               />
             </label>

@@ -10,10 +10,9 @@ const paymentOptions = [
   {
     id: "cash_on_delivery_card",
     header: (
-      <>
+      <div>
         <p className="text-lg font-semibold">Kapıda Ödeme (Kredi Kartı)</p>
-        <p className="text-lg font-bold">39 TL İşlem Bedeli</p>
-      </>
+      </div>
     ),
     content: (
       <div>
@@ -24,10 +23,9 @@ const paymentOptions = [
   {
     id: "cash_on_delivery_cash",
     header: (
-      <>
+      <div>
         <p className="text-lg font-semibold">Kapıda Ödeme (Nakit)</p>
-        <p className="text-lg font-bold">39 TL İşlem Bedeli</p>
-      </>
+      </div>
     ),
     content: (
       <div>
@@ -41,7 +39,6 @@ const AccordionPayment = () => {
 
   const handleLabelClick = (optionId: string) => {
     setSelectedOption(optionId);
-    console.log("Seçilen seçenek:", selectedOption);
   };
   return (
     <>
